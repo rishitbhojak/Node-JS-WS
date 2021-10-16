@@ -48,20 +48,32 @@ const users = [
 ];
 
 const createFilteredArray = (inputArray, isValid) => {
-  const resultArray = [];
+  var resultArray = {};
   for (let i = 0; i < inputArray.length; i++) {
     //ToDo Implement required logic
-    //Hint : if user isValid store in result
+    //Hint : if users isValid store in result
+    if (isValid(resultArray[i])) {
+      resultArray.push(inputArray[i]);
+    }
   }
   return resultArray;
 };
 
-const findUsersFromINDIA = (user) => {
+const findUsersFromINDIA = (users) => {
+  if (users.countryCode == "IND") {
+    return true;
+  } else {
+    return false;
+  }
+
   // TODO return true or false based on given condtion
 };
 
 //Todo: Write findUsersWhoseFriendIsNorman
 //Hint : Write similar function as above with requried logic
+const findUsersWhoseFriendIsNorman = (users) => {
+  return users.friends.find((friend) => friend.name === "Norman");
+};
 
 const prettyConsoleLog = (message, data) =>
   console.log(message, JSON.stringify(data, null, 4));
